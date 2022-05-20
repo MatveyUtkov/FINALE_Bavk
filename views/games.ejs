@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+<div class="col-md-4 col-md-offset-4">
+<div class="form-group">
+<form action="/games" method="post">
+    <span>Choose the genre</span>
+
+    <input type="radio" id="contactChoice1"
+           name="crypto" value="Fantasy">
+    <label for="contactChoice1">Fantasy</label>
+
+    <input type="radio" id="contactChoice2"
+           name="crypto" value="Action">
+    <label for="contactChoice2">Action</label>
+
+    <input type="radio" id="contactChoice3"
+           name="crypto" value="FPS">
+    <label for="contactChoice3">Shooter</label>
+    <input type="radio" id="contactChoice4"
+           name="crypto" value="RPG">
+    <label for="contactChoice3">RPG</label>
+    <br>
+    <br>
+    <br>
+
+    <button name="btn">press me</button>
+</form>
+</div>
+</div>
+<%- include('partials/footer') %>
