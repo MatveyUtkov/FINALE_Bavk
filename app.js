@@ -5,7 +5,8 @@ const request=require('request');
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const bcrypt = require('bcrypt');
-
+const swaggerUi = require('swagger-ui-express'),
+    swaggerDocument = require('./swagger.json');
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 const UserRoute = require('./routes/UserRoute')
@@ -156,6 +157,8 @@ app.post('/music', (req, res) => {
         res.send("First music is " + music1)
     });
 });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument)
+);
 let port = process.env.PORT||3000;
 
 app.listen(port, () => {
