@@ -21,8 +21,8 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/users/register": {
-      "get": {
+    "/user/register": {
+      "post": {
         "tags": ["Users registration"],
         "summary": "Registration for users",
         "parameters": [
@@ -45,10 +45,10 @@
         }
       }
     },
-    "/users": {
+    "/user/login": {
       "post": {
         "tags": ["Users"],
-        "description": "Show all users",
+        "description": "Login as User",
         "produces": ["application/json"],
         "responses": {
           "200": {
@@ -59,9 +59,58 @@
           }
         }
       }
+    },
+    "/movie/show": {
+      "get": {
+        "tags": ["Movie"],
+        "description": "Show all movies",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Movie"
+            }
+          }
+        }
+      }
+    },
+    "/game/show": {
+      "get": {
+        "tags": ["Game"],
+        "description": "Show all games",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Game"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
+    "Game": {
+      "required": ["game_name", "_id"],
+      "properties": {
+        "_id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "game_name": {
+          "type": "string"
+        },
+        "game_image": {
+          "type": "string"
+        }
+      }
+    },
+    "Games": {
+      "type": "array",
+      "$ref": "#/definitions/Game"
+    },
     "User": {
       "required": ["username", "_id"],
       "properties": {
@@ -69,10 +118,10 @@
           "type": "integer",
           "uniqueItems": true
         },
-        "isPublic": {
-          "type": "boolean"
+        "email": {
+          "type": "string"
         },
-        "username": {
+        "password": {
           "type": "string"
         }
       }
@@ -80,6 +129,25 @@
     "Users": {
       "type": "array",
       "$ref": "#/definitions/User"
+    },
+    "Movies": {
+      "required": ["movie_name","_id"],
+      "properties": {
+        "_id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "movie_name": {
+          "type": "string"
+        },
+        "movie_rate": {
+          "type": "string"
+        }
+      }
+    },
+    "Movie": {
+      "type": "array",
+      "$ref": "#/definitions/Movies"
     }
   }
 

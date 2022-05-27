@@ -15,6 +15,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 const dbConfig = require('./config/database.config.js');
 const https = require("https");
+
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true

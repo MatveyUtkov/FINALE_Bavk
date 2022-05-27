@@ -1,29 +1,35 @@
-<%- include('partials/header') %>
-<div class="col-md-4 col-md-offset-4">
-<div class="form-group">
+<%- include('partials/headerCinema') %>
 <form action="/cinema" method="post">
-    <span>Choose the genre</span>
-
-    <input type="radio" id="contactChoice1"
-           name="crypto" value="14">
-    <label for="contactChoice1">Fantasy</label>
-
-    <input type="radio" id="contactChoice2"
-           name="crypto" value="18">
-    <label for="contactChoice2">Drama</label>
-
-    <input type="radio" id="contactChoice3"
-           name="crypto" value="28">
-    <label for="contactChoice3">Action</label>
-    <input type="radio" id="contactChoice4"
-           name="crypto" value="35">
-    <label for="contactChoice3">Comedy</label>
+    <div class="choose">
+        <span>Choose the genre</span>
+    </div>
+    <div class="fan" >
+        <input type="radio" id="contactChoice1"
+               name="crypto" value="Fantasy">
+        <label for="contactChoice1">Fantasy</label>
+    </div>
+    <br>
+    <div class="fan" >
+        <input type="radio" id="contactChoice2"
+               name="crypto" value="Action" class="act">
+        <label for="contactChoice2">Action</label>
+    </div>
+    <br>
+    <div class="fan" >
+        <input type="radio" id="contactChoice3"
+               name="crypto" value="Drama" class="dr">
+        <label for="contactChoice3">Drama</label>
+    </div>
+    <br>
+    <div class="fan" >
+        <input type="radio" id="contactChoice4"
+               name="crypto" value="Comedy" class="com">
+        <label for="contactChoice3">Comedy</label>
+    </div>
     <br>
     <br>
     <br>
-
-    <button name="btn">press me</button>
+    <br>
+    <button class="me" name="btn">press me</button>
 </form>
-</div>
-</div>
 <%- include('partials/footer') %>
